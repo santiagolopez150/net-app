@@ -1,11 +1,14 @@
 import axios from "axios";
 
-export const fetchBaseUrl=()=>{
-    return axios.get('https://api.themoviedb.org/3/configuration?api_key=0b32f39ac55ae3bb8aa134234754f67e')
-    .then((res)=>{
-        console.log("[fetchBaseUrl] res",res)
-        return res
-    }).catch((err)=>{
-        console.log('[fetchBaseUrl] err',err)
+export const fetchMovies = () => {
+  return axios
+    .get(
+      "https://api.themoviedb.org/3/movie/popular?api_key=0b32f39ac55ae3bb8aa134234754f67e&language=en-US&page=1"
+    )
+    .then((res) => {
+      return res.data;
     })
-}
+    .catch((err) => {
+      console.log("[fetchBaseUrl] err", err);
+    });
+};
